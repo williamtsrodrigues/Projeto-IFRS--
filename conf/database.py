@@ -1,10 +1,14 @@
+import os
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
 
+# Carrega as variáveis do arquivo .env
+load_dotenv()
 
 db = SQLAlchemy()
 
-
 def init_db(app):
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:1234@localhost/projeto'
-
+    # Puxa a string de conexão do seu .env
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)

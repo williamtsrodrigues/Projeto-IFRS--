@@ -13,7 +13,7 @@ init_db(app)
 
 
 #Registro de controladores 
-app.register_blueprint(user_bp)
+app.register_blueprint(user_bp) 
 
 
 
