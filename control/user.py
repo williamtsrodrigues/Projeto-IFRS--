@@ -1,9 +1,8 @@
 from flask import Blueprint, request, jsonify
-from sqlalchemy import text
 from conf.database import db
 
 
-user_bp = Blueprint('auth', __name__, url_prefix = '/auth') 
+user_bp = Blueprint('auth', __name__,) 
 
 
 class User(db.Model):
